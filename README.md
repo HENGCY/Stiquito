@@ -1,3 +1,2 @@
 # Stiquito
 Projet Tutoré
-LOL
