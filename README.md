@@ -5,10 +5,15 @@ Il faut toujours faire pull avant push
 
 command utile:
 
-git clone https://github.com/HENGCY/Stiquito.git/n
-git add <filename>/n
-git commit -a -m "Message"/n
-git push origin master/n
-git pull/n
-git push /n
+git clone https://github.com/HENGCY/Stiquito.git
+
+git add <filename>
+
+git commit -a -m "Message"
+
+git push origin master
+
+git pull
+
+git push 
 
