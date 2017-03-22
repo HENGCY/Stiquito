@@ -1,9 +1,14 @@
 # Stiquito
 Projet Tutoré
-<<<<<<< HEAD
-LOL
-Testing by Vi 
-haha
 
-=======
->>>>>>> d1e9e899e02981d80ad85f8b97862c62f393b0c4
+Il faut toujours faire pull avant push 
+
+command utile:
+
+git clone https://github.com/HENGCY/Stiquito.git
+git add <filename>
+git commit -a -m "Message"
+git push origin master
+git pull
+git push 
+
