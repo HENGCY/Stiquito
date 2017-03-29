@@ -1,99 +1,31 @@
+#include "WalkingModels.h"
 
-#include <iostream>
-using namespace std;
-
-
-class State {
-public:
-	State() : left(0), right(0), delay(0) {}
-
-	void set(unsigned int newState) {
-		delay = (unsigned short)(newState && 0x0000FFFF);
-		unsigned short MSB = (unsigned char)((newState >> 16) && 0x0000FFFF);
-		left = (unsigned char)(MSB && 0x7F);
-		right = (unsigned char)((MSB >> 8) && 0x7F);
-	}
-	
-	void show() {
-		unsigned char side = left;
-		for (int i = 0; i<3; i++) {
-			unsigned char leg = (side && 0x03);
-			cout << "  ";
-			switch (leg) {
-			case 0: cout << "|"; break;
-			case 1: cout << "/"; break;
-			case 2: cout << "i"; break;
-			case 3: cout << "\\"; break;
-			}
-			side = side >> 2;
-		}
-		cout << endl << " =========" << endl;
-		
-	}
-
-protected:
-	unsigned char left;
-	unsigned char right;
-	unsigned short delay;
-};
-
-typedef struct S_LEG {
-	unsigned char forward : 1;
-	unsigned char up : 1;
-} sleg;
-
-typedef union {
-	//	sleg front;
-	//	sleg mid;
-	//	sleg back;
-	//	struct{
-	//		unsigned char FF : 1;
-	//		unsigned char FU : 1;
-	//		unsigned char MF : 1;
-	//		unsigned char MU : 1;
-	//		unsigned char BF : 1;
-	//		unsigned char BU : 1;
-	//	}bit;
-	struct {
-		unsigned char forward : 1;
-		unsigned char up : 1;
-	}front;
-	struct {
-		unsigned char forward : 1;
-		unsigned char up : 1;
-	}mid;
-	struct {
-		unsigned char forward : 1;
-		unsigned char up : 1;
-	}back;
-
-	unsigned char full_state;
-}Struct_SideState;
-
-typedef union {
-	struct {
-		Struct_SideState left;
-		Struct_SideState right;
-	}side;
-	unsigned short full_state;
-}Struct_LegState;
-
-typedef union {
-	struct {
-		Struct_LegState legState;
-		unsigned short holdTime;
-	}field;
-	unsigned int full_state;
-}Struct_State;
-
+Stiquito Papion; 
+int i = 0; 
+FullState etat1; 
+FullState etat2;
 
 void setup() {
-	State* s = new State();
-	s->show();
+    Serial.begin(9600); 
+    pinMode(5, OUTPUT); 
+    etat1.state = STATE(0,0,0,0,1,0,0,0,0,0,0,0,150);
+    etat1.details.holdTime = 1 ;
+    etat2.state = STATE_ZERO(150);
 
-}
+  }
 
 
 void loop() {
-	// put your main code here, to run repeatedly:
+  Serial.println(etat1.state);
+  Serial.println(STATE(0,0,0,0,1,0,0,0,0,0,0,0,150));
+  Papion.setState(etat1); 
+  Papion.setState(etat2); 
+//  Papion1.setState(WalkingTab[i]); 
+//  digitalWrite(5, HIGH); 
+//  delay(150); 
+//  digitalWrite(5, LOW); 
+//  delay(150);
+  i++; 
+  if( i >= 8 ) i = 0; 
+  }
 
