@@ -13,7 +13,7 @@
 
 #ifdef TRIPOD
 #define WalkingTab tripod
-#define DELAY 1000
+#define DELAY 100
 FullState tripod[8] = {STATE_ZERO(DELAY / 2), \
                        STATE(0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, DELAY), \
                        STATE(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, DELAY), \
@@ -25,4 +25,5 @@ FullState tripod[8] = {STATE_ZERO(DELAY / 2), \
                       };
 //Tableau de modele de marche Tripod
 #endif
+
 

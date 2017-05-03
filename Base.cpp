@@ -26,7 +26,6 @@ void Stiquito::setState(FullState newState) {
   delay(newState & (0xFFFF));
 }
 
-//testing by showing FullState_,LED, need to test by osscilloscope
 
 
 void Stiquito::execute(FullState Mode[], unsigned short temps) {
@@ -36,11 +35,12 @@ void Stiquito::execute(FullState Mode[], unsigned short temps) {
   //current state=0;
   while (timer_ < temps) {
     this->setState(Mode[ind]);
-    timer_ += Mode[ind] & (0xFFFF);
+    timer_=  timer_ +(unsigned short)(Mode[ind] & (0xFFFF));
     ind++;
     if ( ind >= 8 ) ind = 0;
   }
 }
 //havent testing yet
+
 
 

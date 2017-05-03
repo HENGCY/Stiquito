@@ -56,3 +56,4 @@ class Stiquito{
     //Indication de numero etat en ce moment  
 };
 
+
