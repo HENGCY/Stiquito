@@ -29,42 +29,30 @@
              pinMode(LBF_PIN, OUTPUT);\
              pinMode(LBU_PIN, OUTPUT);
 
-// Structures  [Not working] (check full state length)
-/* Sidestate  */ 
-typedef union {
-    struct{
-      unsigned char FF : 1;
-      unsigned char FU : 1;
-      unsigned char MF : 1;
-      unsigned char MU : 1;
-      unsigned char BF : 1;
-      unsigned char BU : 1;
-      unsigned char NA : 2;
-    } bits;
-   unsigned char fullState; 
-} SideState;
-
-/* Fullstate  */ 
-typedef union { 
-   struct{ 
-      SideState right; 
-      SideState left; 
-      unsigned short holdTime; 
-   } details; 
-   unsigned int state; 
-} FullState;
+typedef unsigned long FullState ;
 
 // Etat actuel du stiquito
-class Stiquito {
-public:
-  Stiquito() : holdTime(0) { Init }
-  Stiquito(FullState state) : holdTime(state.details.holdTime), right(state.details.right), left(state.details.left) { Init }
+class Stiquito{
+  public:
+  Stiquito():FullState_((unsigned long)(0)),numero_etat_(0){};
+  Stiquito(FullState state): FullState_(state),numero_etat_(0){};  
+  //Constructeur de Stiquito
 
   void setState(FullState newState);
-
+  //fonction de affectation des pin de Stiquito par modele de marche
+  
+  void execute(FullState Mode[],unsigned short temps);
+  //fonction execution de programme en limitant de temps(pas tester)
+  
+  void showState(){Serial.println(FullState_);};
+  //fonction de Serial.print pour afficher le current FullState_
+  
   protected:
-    SideState left;
-    SideState right;
-    unsigned short holdTime;
+    FullState FullState_;
+    //Il s'agit Etat Complete de Stiquito (4 Octet)
+    //Compris 1 Octet de State RIGHT,1 Octet de State LEFT, 2 Octets pour holdTime 
+
+    int numero_etat_;
+    //Indication de numero etat en ce moment  
 };
 

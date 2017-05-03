@@ -1,28 +1,46 @@
 #include "Base.hpp"
-
-#define VAL(x) ((x > 0) ? HIGH : LOW)
+int Mapping[12] = {RFF_PIN, RFU_PIN, RMF_PIN, RMU_PIN, RBF_PIN, RBU_PIN, \
+                   LFF_PIN, LFU_PIN, LMF_PIN, LMU_PIN, LBF_PIN, LBU_PIN};
+//tableau de pin de Arduino
 
 void Stiquito::setState(FullState newState) {
-    
-    holdTime = newState.details.holdTime; 
-    right = newState.details.right; 
-    left = newState.details.left;
+  int i = 0;
+  this->FullState_ = newState;
   
-    // Set des pattes gauches
-    digitalWrite(RFF_PIN, VAL(right.bits.FF)); 
-    digitalWrite(RFU_PIN, VAL(right.bits.FU)); 
-    digitalWrite(RMF_PIN, VAL(right.bits.MF)); 
-    digitalWrite(RMU_PIN, VAL(right.bits.MU)); 
-    digitalWrite(RBF_PIN, VAL(right.bits.BF)); 
-    digitalWrite(RBU_PIN, VAL(right.bits.BU)); 
+  // Set des pattes droites
+  for (i = 0; i < 6; i++) {
+    if (newState & ((unsigned long)(1) << (29 - i)))
+      digitalWrite(Mapping[i], HIGH);
+    else
+      digitalWrite(Mapping[i], LOW);
+  }
 
-    // Set des pattes droites
-    digitalWrite(LFF_PIN, VAL(left.bits.FF)); 
-    digitalWrite(LFU_PIN, VAL(left.bits.FU)); 
-    digitalWrite(LMF_PIN, VAL(left.bits.MF)); 
-    digitalWrite(LMU_PIN, VAL(left.bits.MU)); 
-    digitalWrite(LBF_PIN, VAL(left.bits.BF)); 
-    digitalWrite(LBU_PIN, VAL(left.bits.BU)); 
+  // Set des pattes gauches
+  for (i = 6; i < 12; i++) {
+    if (newState & ((unsigned long)(1) << (27 - i)))
+      digitalWrite(Mapping[i], HIGH);
+    else
+      digitalWrite(Mapping[i], LOW);
+  }
 
-    delay(holdTime); 
+  delay(newState & (0xFFFF));
 }
+
+//testing by showing FullState_,LED, need to test by osscilloscope
+
+
+void Stiquito::execute(FullState Mode[], unsigned short temps) {
+  unsigned short timer_ = 0;
+  //Counter pour temps totale execution
+  int ind = 0;
+  //current state=0;
+  while (timer_ < temps) {
+    this->setState(Mode[ind]);
+    timer_ += Mode[ind] & (0xFFFF);
+    ind++;
+    if ( ind >= 8 ) ind = 0;
+  }
+}
+//havent testing yet
+
+
