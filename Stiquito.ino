@@ -28,15 +28,17 @@ void setup() {
 /***************************************************/
 void loop() {
 
-  Papion.execute(tripod,(unsigned short)(10000));
-  
+  //Papion.execute(quatre_deux,(unsigned short)(10000));
 
-  Papion.setState(etat0);
-  delay(10000);
-  /*
-  Papion.setState(tripod[indice]);
+
+   
+  //delay(10000);  
+  Papion.setState(quatre_deux[indice]);
+  Papion.showState();
+  
   indice++;
-  if ( indice >= 8 ) indice = 1;*/
+  if ( indice >= 6 ) indice = 0;
+
 }
 
 

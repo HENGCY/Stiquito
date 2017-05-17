@@ -1,5 +1,5 @@
 #include "Base.hpp"
-#define TRIPOD
+//#define TRIPOD
 
 #define STATE(rff, rfu, rmf, rmu, rbf, rbu, lff, lfu, lmf, lmu, lbf, lbu, holdtime) \
   ( ((unsigned long)(rff) << 29) | ((unsigned long)(rfu) << 28) | ((unsigned long)(rmf) << 27) | \
@@ -11,9 +11,11 @@
 #define STATE_ZERO(holdtime) STATE(0,0,0,0,0,0,0,0,0,0,0,0,holdtime)
 //macro de fonction affectation de FullState
 
-#ifdef TRIPOD
+//#ifdef TRIPOD
 #define WalkingTab tripod
+#define WalkingTab quatre_deux
 #define DELAY 100
+
 FullState tripod[8] = {STATE_ZERO(DELAY / 2), \
                        STATE(0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, DELAY), \
                        STATE(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, DELAY), \
@@ -23,7 +25,19 @@ FullState tripod[8] = {STATE_ZERO(DELAY / 2), \
                        STATE(0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, DELAY), \
                        STATE(0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, DELAY)
                       };
+     
 //Tableau de modele de marche Tripod
-#endif
+
+FullState quatre_deux[6] = {
+                       STATE(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, DELAY), \
+                       STATE(0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, DELAY), \
+                       STATE(1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, DELAY), \
+                       STATE(1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, DELAY), \
+                       STATE(0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, DELAY), \
+                       STATE(0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, DELAY)
+                      };
+     
+//Tableau de modele de marche Quatre_deux
+//#endif
 
 
