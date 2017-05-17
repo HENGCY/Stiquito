@@ -2,19 +2,19 @@
 
 // Constantes mapping
 // Patte droite
-#define RFF_PIN 1
-#define RFU_PIN 2
-#define RMF_PIN 3
-#define RMU_PIN 4
-#define RBF_PIN 5
-#define RBU_PIN 6
+#define RFF_PIN 18
+#define RFU_PIN 19
+#define RMF_PIN 8
+#define RMU_PIN 10
+#define RBF_PIN 31
+#define RBU_PIN 27
 // Patte gauche
-#define LFF_PIN 7
-#define LFU_PIN 8
-#define LMF_PIN 9
-#define LMU_PIN 10 
-#define LBF_PIN 11 
-#define LBU_PIN 12 
+#define LFF_PIN 1
+#define LFU_PIN 28
+#define LMF_PIN 21
+#define LMU_PIN 9 
+#define LBF_PIN 39 
+#define LBU_PIN 29 
 
 #define Init pinMode(RFF_PIN, OUTPUT);\
              pinMode(RFU_PIN, OUTPUT);\
