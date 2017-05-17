@@ -5,8 +5,6 @@ import argparse
 
 import random
 
-random.seed()
-
 def fPrint(text):
     print("[##]: %s" % text)
 
@@ -172,7 +170,7 @@ class Populate:
                 exit(-1)
 
             # Classement vis-à-vis de l'heuristique
-            np.array(heuristics[1]).sort()
+            np.array(heuristics).sort()
 
             try:
                 # Croisement des individus
