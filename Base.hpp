@@ -2,21 +2,28 @@
 
 // Constantes mapping
 // Patte droite
-#define RFF_PIN 18
-#define RFU_PIN 19
-#define RMF_PIN 8
-#define RMU_PIN 10
-#define RBF_PIN 31
-#define RBU_PIN 27
-// Patte gauche
-#define LFF_PIN 1
-#define LFU_PIN 28
-#define LMF_PIN 21
-#define LMU_PIN 9 
-#define LBF_PIN 39 
-#define LBU_PIN 29 
+#define RFF_PIN PD0  //18
+#define RFU_PIN PD1  //19
+#define RMF_PIN PB0  //8 
+#define RMU_PIN PB2  //10
+#define RBF_PIN PC6  //31
+#define RBU_PIN PD7  //27
 
-#define Init pinMode(RFF_PIN, OUTPUT);\
+// Patte gauche
+#define LFF_PIN PE6  //1   
+#define LFU_PIN PB4  //28
+#define LMF_PIN PD3  //21
+#define LMU_PIN PB1  //9 
+#define LBF_PIN PF4  //39 
+#define LBU_PIN PB5  //29 
+
+#define Init DDRB=DDRB|0b00110111;\
+             DDRC=DDRC|0b01000000;\
+             DDRD=DDRD|0b10001011;\
+             DDRE=DDRE|0b01000000;\
+             DDRF=DDRF|0b00010000;
+/*           
+             pinMode(RFF_PIN, OUTPUT);\
              pinMode(RFU_PIN, OUTPUT);\
              pinMode(RMF_PIN, OUTPUT);\
              pinMode(RMU_PIN, OUTPUT);\
@@ -28,6 +35,7 @@
              pinMode(LMU_PIN, OUTPUT);\
              pinMode(LBF_PIN, OUTPUT);\
              pinMode(LBU_PIN, OUTPUT);
+*/
 
 typedef unsigned long FullState ;
 

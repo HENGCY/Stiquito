@@ -14,7 +14,7 @@
 //#ifdef TRIPOD
 #define WalkingTab tripod
 #define WalkingTab quatre_deux
-#define DELAY 100
+#define DELAY 500
 
 FullState tripod[8] = {STATE_ZERO(DELAY / 2), \
                        STATE(0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, DELAY), \
