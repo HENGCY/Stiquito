@@ -28,14 +28,13 @@ void setup() {
 /*              Section de Execution               */
 /***************************************************/
 void loop() {
-
-  //Papion.execute(etat1,(unsigned short)(5000));
-   
-  //delay(10000);  
-  Papion.setState(etat1);  
-  Papion.setState(etat0);  
-  //indice++;
-  //if ( indice >= 8 ) indice = 0;
+  //Papion.execute(tripod, 10000);
+  //Papion.execute(quatre_deux, 10000);
+  //Papion.setState(etat0);  
+  Papion.setState(quatre_deux[indice]);
+  
+  indice++;
+  if ( indice >= 6 ) indice = 0;
 
 }
 

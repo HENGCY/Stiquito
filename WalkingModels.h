@@ -31,7 +31,7 @@ FullState tripod[8] = {STATE_ZERO(DELAY / 2), \
 FullState quatre_deux[6] = {
                        STATE(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, DELAY), \
                        STATE(0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, DELAY), \
-                       STATE(1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, DELAY), \
+                       STATE(1, 1, 0, 0, 0, 0, 1, 1,0, 0, 0, 0, DELAY), \
                        STATE(1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, DELAY), \
                        STATE(0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, DELAY), \
                        STATE(0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, DELAY)
