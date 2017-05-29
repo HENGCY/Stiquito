@@ -24,6 +24,10 @@ void setup() {
   Init;
 }
 
+inline uint8_t fsTabSize(FullState * fs) { 
+  return sizeof(fs) / sizeof(fs[0]);
+}
+
 /***************************************************/
 /*              Section de Execution               */
 /***************************************************/
@@ -33,7 +37,7 @@ void loop() {
   //Papion.setState(etat0);  
   Papion.setState(WalkingTab[indice]);
   indice++;
-  if ( indice >= 6 ) indice = 0;
+  if ( indice >= WalkingTabSize ) indice = 0;
 
 }
 
