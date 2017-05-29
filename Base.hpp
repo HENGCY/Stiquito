@@ -12,7 +12,7 @@
 // Patte gauche
 #define LFF_PIN PE6  //1   
 #define LFU_PIN PB4  //28
-#define LMF_PIN PD3  //21
+#define LMF_PIN PB3  //11
 #define LMU_PIN PB1  //9 
 #define LBF_PIN PF4  //39 
 #define LBU_PIN PB5  //29 

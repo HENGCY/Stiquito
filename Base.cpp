@@ -26,7 +26,7 @@ void Stiquito::setState(FullState newState) {
   // Set des pattes droites
   if (newState & ((unsigned long)(1) << (21)))i_e=i_e+0b01000000;
   if (newState & ((unsigned long)(1) << (20)))i_b=i_b+0b00010000;
-  if (newState & ((unsigned long)(1) << (19)))i_d=i_d+0b00001000; 
+  if (newState & ((unsigned long)(1) << (19)))i_b=i_b+0b00001000; 
   if (newState & ((unsigned long)(1) << (18)))i_b=i_b+0b00000010;
   if (newState & ((unsigned long)(1) << (17)))i_f=i_f+0b00010000;
   if (newState & ((unsigned long)(1) << (16)))i_b=i_b+0b00100000;
