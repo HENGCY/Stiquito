@@ -31,8 +31,7 @@ void loop() {
   //Papion.execute(tripod, 10000);
   //Papion.execute(quatre_deux, 10000);
   //Papion.setState(etat0);  
-  Papion.setState(quatre_deux[indice]);
-  
+  Papion.setState(WalkingTab[indice]);
   indice++;
   if ( indice >= 6 ) indice = 0;
 

@@ -1,3 +1,6 @@
+#ifndef BASE_HPP 
+#define BASE_HPP
+
 #include <Arduino.h>
 
 // Constantes mapping
@@ -17,25 +20,12 @@
 #define LBF_PIN PF4  //39 
 #define LBU_PIN PB5  //29 
 
+// Declaration manuelle des outputs
 #define Init DDRB=DDRB|0b00111111;\
              DDRC=DDRC|0b01000000;\
              DDRD=DDRD|0b10000011;\
              DDRE=DDRE|0b01000000;\
              DDRF=DDRF|0b00010000;
-/*           
-             pinMode(RFF_PIN, OUTPUT);\
-             pinMode(RFU_PIN, OUTPUT);\
-             pinMode(RMF_PIN, OUTPUT);\
-             pinMode(RMU_PIN, OUTPUT);\
-             pinMode(RBF_PIN, OUTPUT);\
-             pinMode(RBU_PIN, OUTPUT);\
-             pinMode(LFF_PIN, OUTPUT);\
-             pinMode(LFU_PIN, OUTPUT);\
-             pinMode(LMF_PIN, OUTPUT);\
-             pinMode(LMU_PIN, OUTPUT);\
-             pinMode(LBF_PIN, OUTPUT);\
-             pinMode(LBU_PIN, OUTPUT);
-*/
 
 typedef unsigned long FullState ;
 
@@ -63,5 +53,7 @@ class Stiquito{
     int numero_etat_;
     //Indication de numero etat en ce moment  
 };
+
+#endif // BASE_HPP
 
 
