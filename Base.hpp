@@ -17,9 +17,9 @@
 #define LBF_PIN PF4  //39 
 #define LBU_PIN PB5  //29 
 
-#define Init DDRB=DDRB|0b00110111;\
+#define Init DDRB=DDRB|0b00111111;\
              DDRC=DDRC|0b01000000;\
-             DDRD=DDRD|0b10001011;\
+             DDRD=DDRD|0b10000011;\
              DDRE=DDRE|0b01000000;\
              DDRF=DDRF|0b00010000;
 /*           

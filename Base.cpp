@@ -68,7 +68,7 @@ void Stiquito::execute(FullState Mode[], unsigned short temps) {
     this->setState(Mode[ind]);
     timer_=  timer_ +(unsigned short)(Mode[ind] & (0xFFFF));
     ind++;
-    if ( ind >= sizeof(Mode)/(2*sizeof(unsigned short)) ) ind = 0;
+    if ( ind >= sizeof(Mode)/(sizeof(unsigned long)) ) ind = 0;
   }
 }
 
